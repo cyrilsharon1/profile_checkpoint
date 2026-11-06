@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.page-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 64px 24px 28px;
+  background: radial-gradient(ellipse at 18% 16%, #f3e9dd 0, transparent 33%), #f7f5f0;
 }
 
-.App-link {
-  color: #61dafb;
+.profile-panel {
+  width: min(100%, 780px);
+  margin: 0 auto;
+  padding: clamp(30px, 6vw, 64px);
+  background: rgba(255, 255, 255, .82);
+  border: 1px solid #e9e3d9;
+  border-radius: 10px;
+  box-shadow: 0 28px 80px rgba(54, 44, 30, .08);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.eyebrow {
+  margin: 0 0 16px;
+  color: #9a714c;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+h1, h2, p { margin-top: 0; }
+
+h1, h2 {
+  color: #292720;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 500;
+}
+
+h1 {
+  max-width: 570px;
+  margin-bottom: 14px;
+  font-size: clamp(36px, 7vw, 58px);
+  letter-spacing: -.035em;
+  line-height: 1.08;
+}
+
+.lede {
+  max-width: 490px;
+  margin-bottom: 32px;
+  color: #77736b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.toggle-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 30px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 4px;
+  background: #33382e;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.toggle-button:hover { background: #4b5542; transform: translateY(-1px); }
+.toggle-button:focus-visible { outline: 3px solid #c5a47e; outline-offset: 3px; }
+.toggle-button span { font-size: 20px; font-weight: 400; line-height: 1; }
+
+.person-card {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 26px;
+  align-items: center;
+  margin-top: 34px;
+  padding: 22px;
+  border: 1px solid #eee8df;
+  border-radius: 7px;
+  background: #fbfaf7;
+  animation: reveal .3s ease both;
+}
+
+.person-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  object-fit: cover;
+  background: #e4ded4;
+}
+
+.person-details .eyebrow { margin-bottom: 8px; font-size: 10px; }
+.person-details h2 { margin-bottom: 4px; font-size: 30px; }
+.profession { margin-bottom: 14px; color: #9a714c; font-size: 13px; font-weight: 600; }
+.bio { margin-bottom: 0; color: #77736b; font-size: 14px; line-height: 1.7; }
+
+.elapsed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 34px;
+  color: #77736b;
+  font-size: 12px;
+}
+
+.elapsed strong { color: #33382e; font-variant-numeric: tabular-nums; }
+.elapsed-indicator { width: 7px; height: 7px; border-radius: 50%; background: #8c9b73; box-shadow: 0 0 0 4px #edf0e7; }
+
+footer {
+  margin: 34px auto 0;
+  color: #aaa398;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+footer span { padding: 0 6px; color: #c2a17c; }
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 560px) {
+  .page-shell { padding: 24px 16px; }
+  .person-card { grid-template-columns: 1fr; gap: 20px; padding: 16px; }
+  .person-image { max-height: 260px; aspect-ratio: 16 / 10; }
 }
